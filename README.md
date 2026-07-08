@@ -1,4 +1,4 @@
-# 📂 Folder Checksum Comparer (.NET 10)
+# 📂📄 Application for comparing file and folder checksums (.NET 10)
 
 ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white)
 ![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
