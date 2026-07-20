@@ -62,9 +62,9 @@
 
 1.  Клонируйте репозиторий:
     ```bash
-    git clone https://github.com/img507/Checksum.git
+    git clone https://github.com/img507/Directory-comparison.git
     ```
-2.  Откройте решение `Checksum.sln` в Visual Studio.
+2.  Откройте решение `Directory comparison.sln` в Visual Studio.
 3.  Установите необходимый NuGet-пакет через Консоль диспетчера пакетов:
     ```powershell
     Install-Package System.IO.Hashing
