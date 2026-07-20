@@ -15,7 +15,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Checksum
+namespace Directory_comparison
 {
     public partial class Form1 : Form
     {
@@ -37,7 +37,7 @@ namespace Checksum
             listViewResults.Columns.Add("MD5", 220);
             listViewResults.Columns.Add("CRC32", 80);
             listViewResults.Columns.Add("Размер (байт)", 100);
-            listViewResults.Columns.Add("Статус", 150);
+            listViewResults.Columns.Add("Статус", 225);
 
             listViewResults.ColumnClick += ListViewResults_ColumnClick;
             listViewResults.DoubleClick += ListViewResults_DoubleClick;

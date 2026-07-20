@@ -1,4 +1,4 @@
-﻿namespace Checksum
+﻿namespace Directory_comparison
 {
     partial class Form1
     {
@@ -223,7 +223,7 @@
 
         private System.Windows.Forms.Button btnSelectFolder1;
         private System.Windows.Forms.Button btnSelectFolder2;
-        private Checksum.FlickerFreeListView listViewResults;
+        private Directory_comparison.FlickerFreeListView listViewResults;
         private System.Windows.Forms.Label lblFolder1Path;
         private System.Windows.Forms.Label lblFolder2Path;
         private System.Windows.Forms.Button btnCompare;

@@ -1,4 +1,4 @@
-namespace Checksum
+namespace Directory_comparison
 {
     internal static class Program
     {

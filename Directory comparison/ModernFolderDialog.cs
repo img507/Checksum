@@ -13,14 +13,16 @@ public class FolderPicker
 
     public IReadOnlyList<string> ResultPaths => _resultPaths;
     public IReadOnlyList<string> ResultNames => _resultNames;
-    public string ResultPath => ResultPaths.FirstOrDefault();
-    public string ResultName => ResultNames.FirstOrDefault();
-    public virtual string InputPath { get; set; }
+
+    public string? ResultPath => ResultPaths.FirstOrDefault();
+    public string? ResultName => ResultNames.FirstOrDefault();
+
+    public virtual string? InputPath { get; set; }
     public virtual bool ForceFileSystem { get; set; }
     public virtual bool Multiselect { get; set; }
-    public virtual string Title { get; set; }
-    public virtual string OkButtonLabel { get; set; }
-    public virtual string FileNameLabel { get; set; }
+    public virtual string? Title { get; set; }
+    public virtual string? OkButtonLabel { get; set; }
+    public virtual string? FileNameLabel { get; set; }
 
     protected virtual int SetOptions(int options)
     {
@@ -89,9 +91,11 @@ public class FolderPicker
         for (var i = 0; i < count; i++)
         {
             items.GetItemAt(i, out var item);
-            CheckHr(item.GetDisplayName(SIGDN.SIGDN_DESKTOPABSOLUTEPARSING, out var path), throwOnError);
-            CheckHr(item.GetDisplayName(SIGDN.SIGDN_DESKTOPABSOLUTEEDITING, out var name), throwOnError);
-            if (path != null || name != null)
+
+            CheckHr(item.GetDisplayName(SIGDN.SIGDN_DESKTOPABSOLUTEPARSING, out string? path), throwOnError);
+            CheckHr(item.GetDisplayName(SIGDN.SIGDN_DESKTOPABSOLUTEEDITING, out string? name), throwOnError);
+
+            if (path != null && name != null)
             {
                 _resultPaths.Add(path);
                 _resultNames.Add(name);
@@ -107,7 +111,7 @@ public class FolderPicker
     }
 
     [DllImport("shell32")]
-    private static extern int SHCreateItemFromParsingName([MarshalAs(UnmanagedType.LPWStr)] string pszPath, IBindCtx pbc, [MarshalAs(UnmanagedType.LPStruct)] Guid riid, out IShellItem ppv);
+    private static extern int SHCreateItemFromParsingName([MarshalAs(UnmanagedType.LPWStr)] string pszPath, IBindCtx? pbc, [MarshalAs(UnmanagedType.LPStruct)] Guid riid, out IShellItem ppv);
 
     [DllImport("user32")]
     private static extern IntPtr GetDesktopWindow();
@@ -155,7 +159,7 @@ public class FolderPicker
     {
         [PreserveSig] int BindToHandler();
         [PreserveSig] int GetParent();
-        [PreserveSig] int GetDisplayName(SIGDN sigdnName, [MarshalAs(UnmanagedType.LPWStr)] out string ppszName);
+        [PreserveSig] int GetDisplayName(SIGDN sigdnName, [MarshalAs(UnmanagedType.LPWStr)] out string? ppszName);
         [PreserveSig] int GetAttributes();
         [PreserveSig] int Compare();
     }
